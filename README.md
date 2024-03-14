@@ -159,7 +159,7 @@ Perintah ini akan mengkompilasi kode  dan menghasilkan file eksekusi bernama `te
 ./text_length_checker
 ```
 
-Program akan membaca teks dari file.txt, memeriksa panjang teks, dan memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
+Program akan membaca teks dari `file.txt`, memeriksa panjang teks, dan memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
 
 ## Cara Kerja Program
 
