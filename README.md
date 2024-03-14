@@ -145,7 +145,7 @@ The Length is updated to 1945
 
 Untuk menjalankan kode ini, perlu untuk mengikuti langkah-langkah berikut:
 
-1. Simpan kode: Pertama,  menyimpan kode ini ke dalam file dengan ekstensi `.c`. 
+1. Simpan kode: Pertama,  menyimpan kode ini ke dalam file dengan ekstensi `.c`, Misalnya, kita bisa menyimpannya sebagai `text_length_checker.c`. 
 2. Siapkan file teks: Kode ini membaca teks dari file bernama `file.txt`. Pastikan file dengan nama tersebut di direktori yang sama dengan file kode . File ini harus berisi teks yang ingin diperiksa panjangnya.
 3. Kompilasi: Anda perlu mengkompilasi kode menggunakan kompiler C. Jika Anda menggunakan GCC, kita bisa membuka terminal dan mengetikkan perintah berikut di direktori yang sama dengan file kode:
 ```sh
