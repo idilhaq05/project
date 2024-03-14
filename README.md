@@ -126,12 +126,16 @@ Untuk menjalankan kode ini, Anda perlu mengikuti langkah-langkah berikut:
 1. Simpan kode: Pertama, Anda perlu menyimpan kode ini ke dalam file dengan ekstensi `.c`. 
 2. Siapkan file teks: Kode ini membaca teks dari file bernama `file.txt`. Pastikan file dengan nama tersebut di direktori yang sama dengan file kode . File ini harus berisi teks yang ingin diperiksa panjangnya.
 3. Kompilasi: Anda perlu mengkompilasi kode menggunakan kompiler C. Jika Anda menggunakan GCC, Anda bisa membuka terminal dan mengetikkan perintah berikut di direktori yang sama dengan file kode:
-```sh gcc text_length_checker.c -o text_length_checker ```
+```sh
+ gcc text_length_checker.c -o text_length_checker
+```
 
 Perintah ini akan mengkompilasi kode Anda dan menghasilkan file eksekusi bernama `text_length_checker`.
 
 4. Jalankan program: Setelah berhasil mengkompilasi kode, Anda bisa menjalankan program dengan mengetikkan perintah berikut di terminal:
-```sh ./text_length_checker```
+```sh
+./text_length_checker
+```
 
 Program akan membaca teks dari file.txt, memeriksa panjang teks, dan memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
 
