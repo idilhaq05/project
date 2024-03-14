@@ -118,6 +118,8 @@ Fungsi main adalah titik masuk program. Di dalamnya, program membuka file teks, 
 31. `printf("\nThe Length is updated to %d", lengthOfText);`: Mencetak panjang teks yang telah diperbarui.
 32. `return 0;`: Mengakhiri fungsi main dan mengembalikan 0, menandakan bahwa program telah berjalan dengan sukses.
 
+## Output
+![alt text](?raw=true)
 
 ## Cara Penggunaan
 
