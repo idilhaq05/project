@@ -125,7 +125,14 @@ Program ini membaca teks dari file bernama file.txt dan memeriksa panjang teks t
 - Jika panjang teks kurang dari `MIN_LENGTH `(1945), program akan mencetak pesan “The length of your text is less than specified, please update your text” dan mengubah `lengthOfText` menjadi `MIN_LENGTH`.
 - Jika panjang teks sama dengan `MIN_LENGTH`, program akan mencetak pesan “Thank you, Your text length is correct”.
 - Jika panjang teks lebih dari `MIN_LENGTH`, program akan mencetak pesan “Your text is too long, please reduce the text” dan mengubah `lengthOfText` menjadi `MIN_LENGTH`.
+  
+Setelah itu, program akan mencetak “The Length is updated to” diikuti dengan nilai `lengthOfText` yang telah diperbarui.
 
+Sebagai contoh, jika file `file.txt` berisi teks dengan panjang 2000, output program akan seperti ini:
+```sh
+Your text is too long, please reduce the text
+The Length is updated to 1945
+```
 ![alt text](https://github.com/idilhaq05/project/blob/main/Photo/Screenshot%202024-03-14%20085204.png?raw=true)
 
 ![alt text](https://github.com/idilhaq05/project/blob/main/Photo/Screenshot%202024-03-14%20093516.png?raw=true)
