@@ -173,7 +173,7 @@ Program ini bekerja dengan cara membaca teks dari file, memeriksa panjang teks, 
 4. Menampilkan Panjang Teks yang Diperbarui: Setelah fungsi yang sesuai dipanggil, program mencetak “The Length is updated to” diikuti dengan nilai `lengthOfText` yang telah diperbarui.
 
 ## Alur Program
-1. Program dimulai dari fungsi main.
+1. Program dimulai dari fungsi `main`.
 2. Program mencoba membuka file teks dengan nama “file.txt” untuk dibaca. Jika file tidak dapat dibuka, program akan mencetak pesan error dan berhenti.
 3. Jika file berhasil dibuka, program membaca teks dari file dan menyimpannya dalam array `text`.
 4. Program kemudian memeriksa panjang teks dengan memanggil `fungsi checkLenghtRequirement`. Fungsi ini membandingkan panjang teks dengan `MIN_LENGTH` dan mengembalikan 0, 1, atau 2 tergantung pada hasil perbandingan tersebut.
