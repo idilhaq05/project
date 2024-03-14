@@ -120,7 +120,7 @@ Fungsi main adalah titik masuk program. Di dalamnya, program membuka file teks, 
 
 ## Output
 
-Program ini membaca teks dari file bernama file.txt dan memeriksa panjang teks tersebut. Berikut adalah penjelasan output yang dihasilkan:
+Program ini membaca teks dari file bernama `file.txt` dan memeriksa panjang teks tersebut. Berikut adalah penjelasan output nya:
 
 - Jika panjang teks kurang dari `MIN_LENGTH `(1945), program akan mencetak pesan “The length of your text is less than specified, please update your text” dan mengubah `lengthOfText` menjadi `MIN_LENGTH`.
 - Jika panjang teks sama dengan `MIN_LENGTH`, program akan mencetak pesan “Thank you, Your text length is correct”.
@@ -162,6 +162,7 @@ Perintah ini akan mengkompilasi kode  dan menghasilkan file eksekusi bernama `te
 Program akan membaca teks dari `file.txt`, memeriksa panjang teks, dan memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
 
 ## Cara Kerja Program
+Program ini bekerja dengan cara membaca teks dari file, memeriksa panjang teks, dan kemudian memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
 
 1. Membaca File: Program ini membuka dan membaca file teks dengan nama “file.txt”. Teks dari file tersebut disimpan dalam array karakter `text`.
 2. Memeriksa Panjang Teks: Panjang teks yang dibaca dari file diperiksa menggunakan fungsi `checkLenghtRequirement`. Fungsi ini membandingkan panjang teks dengan `MIN_LENGTH` dan mengembalikan 0, 1, atau 2 tergantung pada hasil perbandingan tersebut.
@@ -170,3 +171,25 @@ Program akan membaca teks dari `file.txt`, memeriksa panjang teks, dan memanggil
 - Jika `heckLenghtRequirement `mengembalikan 1 (panjang teks sama dengan `MIN_LENGTH`), fungsi `equalThanRequired `dipanggil. Fungsi ini mencetak pesan bahwa panjang teks sudah benar.
 - Jika `checkLenghtRequirement` mengembalikan 2 (panjang teks lebih dari `MIN_LENGTH`), fungsi `moreThanRequired` dipanggil. Fungsi ini mencetak pesan bahwa teks terlalu panjang dan mengubah `lengthOfText` menjadi `MIN_LENGTH`
 4. Menampilkan Panjang Teks yang Diperbarui: Setelah fungsi yang sesuai dipanggil, program mencetak “The Length is updated to” diikuti dengan nilai `lengthOfText` yang telah diperbarui.
+
+## Alur Program
+1. Program dimulai dari fungsi main.
+2. Program mencoba membuka file teks dengan nama “file.txt” untuk dibaca. Jika file tidak dapat dibuka, program akan mencetak pesan error dan berhenti.
+3. Jika file berhasil dibuka, program membaca teks dari file dan menyimpannya dalam array text.
+4. Program kemudian memeriksa panjang teks dengan memanggil fungsi checkLenghtRequirement. Fungsi ini membandingkan panjang teks dengan MIN_LENGTH dan mengembalikan 0, 1, atau 2 tergantung pada hasil perbandingan tersebut.
+5. Hasil dari fungsi checkLenghtRequirement disimpan dalam variabel selectOption.
+6. Program mendeklarasikan array functions yang berisi pointer ke tiga fungsi: lessThanRequired, equalThanRequired, dan moreThanRequired.
+7. Program memanggil salah satu fungsi dalam array functions berdasarkan nilai selectOption. Fungsi yang dipanggil akan mencetak pesan tertentu dan memodifikasi nilai lengthOfText jika perlu.
+8. Kemudian, program mencetak “The Length is updated to” diikuti dengan nilai lengthOfText yang telah diperbarui.
+9. Program berakhir dengan mengembalikan 0, menandakan bahwa program telah berjalan dengan sukses.
+> **program ini memerlukan file teks bernama “file.txt” di direktori yang sama untuk berfungsi dengan benar.**
+
+## Penjelasan Kode Perbagian 
+1. Pendefinisian Konstanta dan Fungsi: Bagian awal kode mendefinisikan dua konstanta MAX_LENGTH dan `MIN_LENGTH`, serta tiga fungsi `lessThanRequired`, `equalThanRequired`, dan `moreThanRequired`. Ketiga fungsi ini menerima pointer ke integer dan memodifikasi nilai yang ditunjuk oleh pointer tersebut jika perlu.
+2. Fungsi `checkLenghtRequirement`: Fungsi ini menerima string sebagai argumen dan memeriksa panjang string tersebut. Jika panjang string kurang dari `MIN_LENGTH`, fungsi mengembalikan 0. Jika panjang string sama dengan `MIN_LENGTH`, fungsi mengembalikan 1. Jika panjang string lebih dari `MIN_LENGTH`, fungsi mengembalikan 2.
+3. Fungsi `main`: Fungsi `main` adalah titik masuk program. Di dalamnya, program membuka file teks, membaca teksnya, memeriksa panjang teks, dan memanggil fungsi yang sesuai.
+- Membuka File: Program membuka file bernama “file.txt” untuk dibaca. Jika file tidak dapat dibuka (misalnya, file tidak ada), program mencetak “Error” dan keluar dengan status 1.
+- Membaca Teks: Program membaca teks dari file dan menyimpannya dalam array `text`.
+- Memeriksa Panjang Teks: Program memeriksa panjang teks dengan memanggil fungsi `checkLenghtRequirement` dan menyimpan hasilnya dalam `selectOption`.
+- Memanggil Fungsi yang Sesuai: Program mendeklarasikan array dari pointer ke fungsi dan menginisialisasikannya dengan tiga fungsi yang telah didefinisikan sebelumnya. Kemudian, program memanggil fungsi yang sesuai berdasarkan `selectOption` dan memberikan alamat dari `lengthOfText` sebagai argumen.
+- Mencetak Panjang Teks yang Diperbarui: Akhirnya, program mencetak “The Length is updated to” diikuti dengan nilai `lengthOfText` yang telah diperbarui
