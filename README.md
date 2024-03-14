@@ -176,11 +176,11 @@ Program ini bekerja dengan cara membaca teks dari file, memeriksa panjang teks, 
 1. Program dimulai dari fungsi main.
 2. Program mencoba membuka file teks dengan nama “file.txt” untuk dibaca. Jika file tidak dapat dibuka, program akan mencetak pesan error dan berhenti.
 3. Jika file berhasil dibuka, program membaca teks dari file dan menyimpannya dalam array text.
-4. Program kemudian memeriksa panjang teks dengan memanggil fungsi checkLenghtRequirement. Fungsi ini membandingkan panjang teks dengan MIN_LENGTH dan mengembalikan 0, 1, atau 2 tergantung pada hasil perbandingan tersebut.
-5. Hasil dari fungsi checkLenghtRequirement disimpan dalam variabel selectOption.
-6. Program mendeklarasikan array functions yang berisi pointer ke tiga fungsi: lessThanRequired, equalThanRequired, dan moreThanRequired.
-7. Program memanggil salah satu fungsi dalam array functions berdasarkan nilai selectOption. Fungsi yang dipanggil akan mencetak pesan tertentu dan memodifikasi nilai lengthOfText jika perlu.
-8. Kemudian, program mencetak “The Length is updated to” diikuti dengan nilai lengthOfText yang telah diperbarui.
+4. Program kemudian memeriksa panjang teks dengan memanggil fungsi checkLenghtRequirement. Fungsi ini membandingkan panjang teks dengan `MIN_LENGTH` dan mengembalikan 0, 1, atau 2 tergantung pada hasil perbandingan tersebut.
+5. Hasil dari fungsi `checkLenghtRequirement` disimpan dalam variabel `selectOption`.
+6. Program mendeklarasikan array `functions` yang berisi pointer ke tiga fungsi:`lessThanRequired`, `equalThanRequired`, dan `moreThanRequired`.
+7. Program memanggil salah satu fungsi dalam array `functions` berdasarkan nilai `selectOption`. Fungsi yang dipanggil akan mencetak pesan tertentu dan memodifikasi nilai `lengthOfText` jika perlu.
+8. Kemudian, program mencetak “The Length is updated to” diikuti dengan nilai `lengthOfText` yang telah diperbarui.
 9. Program berakhir dengan mengembalikan 0, menandakan bahwa program telah berjalan dengan sukses.
 > **program ini memerlukan file teks bernama “file.txt” di direktori yang sama untuk berfungsi dengan benar.**
 
