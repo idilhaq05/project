@@ -118,34 +118,20 @@ Fungsi main adalah titik masuk program. Di dalamnya, program membuka file teks, 
 31. `printf("\nThe Length is updated to %d", lengthOfText);`: Mencetak panjang teks yang telah diperbarui.
 32. `return 0;`: Mengakhiri fungsi main dan mengembalikan 0, menandakan bahwa program telah berjalan dengan sukses.
 
-### Fungsi
-- **int main():** Fungsi utama program yang mengandung logika menu, pengolahan data, dan interaksi dengan pengguna.
-## 2. User Manual
 
-### Menu Utama
-Program memiliki enam menu utama:
-- **Tambah Data Pengiriman:** Pengguna dapat memasukkan informasi pengiriman baru.
-- **Cari Data Pengiriman:** Pengguna dapat mencari data berdasarkan kode resi.
-- **Tampilkan Semua Data Pengiriman:** Menampilkan seluruh data pengiriman.
-- **Urutkan Data Berdasarkan Tanggal:** Mengurutkan data berdasarkan tanggal pengiriman.
-- **Edit Status Pengiriman:** Mengedit status pengiriman berdasarkan kode resi.
-- **Keluar:** Keluar dari program.
-### Penggunaan Menu
-#### 1. Tambah Data Pengiriman
-- Pengguna diminta memasukkan informasi pengiriman seperti nama pengirim, tujuan pengiriman, berat barang, dan nama penerima.
-- Program secara otomatis menghasilkan kode resi, menghitung harga, dan menetapkan timestamp.
-- Pengguna memilih status pengiriman (Ongoing atau Delivered).
-#### 2. Cari Data Pengiriman
-- Pengguna diminta memasukkan kode resi yang ingin dicari.
-- Jika ditemukan, program akan menampilkan informasi pengiriman. Jika tidak, pesan bahwa data tidak ditemukan ditampilkan.
-#### 3. Tampilkan Semua Data Pengiriman
-- Menampilkan seluruh data pengiriman yang telah dimasukkan.
-#### 4. Urutkan Data Berdasarkan Tanggal
-- Pengguna diminta memilih urutan pengurutan (Ascending atau Descending) berdasarkan tanggal pengiriman.
-- Program akan menampilkan data yang sudah diurutkan.
-#### 5. Edit Status Pengiriman
-- Pengguna diminta memasukkan kode resi yang ingin diedit statusnya.
-- Jika data ditemukan, pengguna memilih status baru (Ongoing atau Delivered). Jika tidak, pesan bahwa data tidak ditemukan ditampilkan.
-#### 6. Keluar
-- Keluar dari program.
+## Cara Penggunaan
+
+Untuk menjalankan kode ini, Anda perlu mengikuti langkah-langkah berikut:
+
+1. Simpan kode: Pertama, Anda perlu menyimpan kode ini ke dalam file dengan ekstensi `.c`. 
+2. Siapkan file teks: Kode ini membaca teks dari file bernama `file.txt`. Pastikan file dengan nama tersebut di direktori yang sama dengan file kode . File ini harus berisi teks yang ingin diperiksa panjangnya.
+3. Kompilasi: Anda perlu mengkompilasi kode menggunakan kompiler C. Jika Anda menggunakan GCC, Anda bisa membuka terminal dan mengetikkan perintah berikut di direktori yang sama dengan file kode:
+```sh gcc text_length_checker.c -o text_length_checker ```
+
+Perintah ini akan mengkompilasi kode Anda dan menghasilkan file eksekusi bernama `text_length_checker`.
+
+4. Jalankan program: Setelah berhasil mengkompilasi kode, Anda bisa menjalankan program dengan mengetikkan perintah berikut di terminal:
+```sh ./text_length_checker```
+
+Program akan membaca teks dari file.txt, memeriksa panjang teks, dan memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
 
