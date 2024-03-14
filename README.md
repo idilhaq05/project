@@ -1,26 +1,122 @@
-# Program Manajemen Pengiriman(Tubes Semester 1)
-## 1. Deskripsi dan Spesifikasi Program
-Program ini merupakan sebuah sistem manajemen pengiriman barang yang dibangun menggunakan bahasa pemrograman C. Berikut adalah beberapa komponen utama dalam program ini:
+##  Code.c
+```sh
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-### Array dan Struktur Data
+#define MAX_LENGTH 2024
+#define MIN_LENGTH 1945
 
-- Program menggunakan array dari struktur Pengiriman untuk menyimpan data pengiriman barang.
-- Struktur **Pengiriman** memiliki beberapa atribut, seperti nama pengirim, tujuan pengiriman, berat barang, nama penerima, kode resi, harga, timestamp, dan status.
+void lessThanRequired (int* lengthOfText){
+    printf("The length of your text is less than specified, please update your text\n");
+    *lengthOfText = MIN_LENGTH;
+}
 
-### Fungsi-fungsi
+void equalThanRequired (int* lengthOfText){
+    printf("Thank you, Your text length is correct\n");
+}
 
-- **float hitungHarga(float berat):** Fungsi ini digunakan untuk menghitung harga pengiriman berdasarkan berat barang.
-- **void newLine():** Prosedur ini digunakan untuk membersihkan buffer input.
-- **void tampilkanKodeResi(struct Pengiriman data):** Prosedur ini menampilkan kode resi dari data pengiriman.
-- **void tampilkanData(struct Pengiriman data):** Prosedur ini menampilkan seluruh informasi dari satu data pengiriman.
-- **void cariData(struct Pengiriman data[], int jumlah_data, char kode_resi_cari[10]):** Prosedur ini mencari dan menampilkan data berdasarkan kode resi.
-- **void tampilkanSemuaData(struct Pengiriman data[], int jumlah_data):** Prosedur ini menampilkan seluruh data pengiriman.
-- **int compareTimestampAsc(const void a, const void b):** Fungsi pembanding untuk pengurutan ascending berdasarkan timestamp.
-- **int compareTimestampDesc(const void a, const void b):** Fungsi pembanding untuk pengurutan descending berdasarkan timestamp.
-- **void urutkanData(struct Pengiriman data[], int jumlah_data, int urutan):** Prosedur ini mengurutkan data berdasarkan tanggal pengiriman.
-- **void simpanDataKeFileCSV(struct Pengiriman data[], int jumlah_data):** Prosedur ini menyimpan data pengiriman ke dalam file CSV.
-- **void bacaDataDariFile(struct Pengiriman data[], int jumlah_data):** Prosedur ini membaca data pengiriman dari file CSV.
+void moreThanRequired (int* lengthOfText){
+    printf("Your text is to long, please reduce the text\n");
+    *lengthOfText = MIN_LENGTH;
+}
 
+int checkLenghtRequirement(char* text){
+    int length = strlen(text);
+    if (length < MIN_LENGTH)
+        return 0;
+    else if (length == MIN_LENGTH)
+        return 1;
+    else
+        return 2;
+}
+
+int main() {
+    int lengthOfText, selectOption;
+    FILE *fptr = NULL;
+    char text[MAX_LENGTH];
+
+    fptr = fopen("file.txt", "r");
+
+    if(fptr == NULL){
+        printf("Error");
+        exit(1);
+    }
+
+    fgets(text, MAX_LENGTH, fptr);
+
+    fclose(fptr);
+
+    selectOption = checkLenghtRequirement(text);
+
+       // TODO
+    // Pada fungsi checkLenghtRequirement akan mengembalikan sebuah angka
+    // angka tersebut digunakan untuk memilih secara otomatis salah satu fungsi yang harus diisi
+    // jika fungsi checkLenghtRequirement() mengembalikan nilai 0, maka
+    //      tampilkan - > The length of your text is less than specified, please update your text
+    //      update nilai lengthOfText ke minimum requirement melalui pointer menggunakan operasi aritmatika
+
+    // jika fungsi checkLenghtRequirement() mengembalikan nilai 1, maka
+    //      tampilkan - > Thank you, Your text length is correct
+
+    // jika fungsi checkLenghtRequirement() mengembalikan nilai 2, maka
+    //      tampilkan - > Your text is to long, please reduce the text
+    //      update nilai lengthOfText ke minimum requirement melalui pointer menggunakan operasi aritmatika
+    //
+    // Catatan :
+    //      - tidak diperkenankan menggunakan if atau switch dalam perpindahan fungsi
+    //        sesuai dengan requirement diatas.
+    //      - baris kode tidak lebih dari 100 (include comment ini)
+    //      - tidak diperkenankan mengganti yang tertera pada starter code dalam alasan apapun
+
+    void (*functions[3])(int*) = {lessThanRequired, equalThanRequired, moreThanRequired};
+
+    lengthOfText = strlen(text);
+    functions[selectOption](&lengthOfText);
+
+    printf("\nThe Length is updated to %d", lengthOfText);
+
+    return 0;
+}
+```
+
+### Penjelasan
+
+1. `#include <stdio.h>:` Mengimpor file header standar input-output dalam C.
+2. `#include <stdlib.h>:` Mengimpor file header standar library dalam C.
+3. `#include <string.h>:` Mengimpor file header untuk fungsi string dalam C.
+4. `#define MAX_LENGTH 2024:` Mendefinisikan konstanta `MAX_LENGTH` dengan nilai 2024.
+5. `#define MIN_LENGTH 1945:` Mendefinisikan konstanta `MIN_LENGTH` dengan nilai 1945.
+Fungsi `lessThanRequired`, `equalThanRequired`, dan `moreThanRequired` adalah fungsi yang akan dipanggil berdasarkan panjang teks. Mereka menerima pointer ke `lengthOfText` dan memodifikasi nilai tersebut jika perlu.
+6. `void lessThanRequired (int* lengthOfText):` Mendefinisikan fungsi `lessThanRequired` yang menerima pointer ke integer.
+7. `printf("The length of your text is less than specified, please update your text\n");`: Menampilkan pesan bahwa panjang teks kurang dari yang ditentukan.
+8. `lengthOfText = MIN_LENGTH;`: Mengubah nilai yang ditunjuk oleh `lengthOfText` menjadi `MIN_LENGTH`.
+9. `void equalThanRequired (int* lengthOfText)`: Mendefinisikan fungsi `equalThanRequired` yang menerima pointer ke integer.
+10. `printf("Thank you, Your text length is correct\n");`: Menampilkan pesan bahwa panjang teks sudah benar.
+11. `void moreThanRequired (int* lengthOfText)`: Mendefinisikan fungsi moreThanRequired yang menerima pointer ke integer.
+12. `printf("Your text is to long, please reduce the text\n");`: Menampilkan pesan bahwa teks terlalu panjang.
+13. `*lengthOfText = MIN_LENGTH;`: Mengubah nilai yang ditunjuk oleh `lengthOfText` menjadi `MIN_LENGTH`.
+Fungsi `checkLenghtRequirement` memeriksa panjang teks dan mengembalikan 0, 1, atau 2 tergantung pada panjang teks tersebut.
+14. `int checkLenghtRequirement(char* text)`: Mendefinisikan fungsi `checkLenghtRequirement`yang menerima pointer ke char (string)
+15. `int length = strlen(text);`: Menghitung panjang string menggunakan fungsi `strlen` dan menyimpannya dalam variabel `length`.
+16. `if (length < MIN_LENGTH) return 0;`: Jika panjang kurang dari `MIN_LENGTH`, fungsi mengembalikan 0.
+17. `else if (length == MIN_LENGTH) return 1;` Jika panjang sama dengan `MIN_LENGTH`, fungsi mengembalikan 1.
+18. `else return 2;` Jika panjang lebih dari `MIN_LENGTH`, fungsi mengembalikan 2.
+Fungsi main adalah titik masuk program. Di dalamnya, program membuka file teks, membaca teksnya, memeriksa panjang teks, dan memanggil fungsi yang sesuai.
+19. `int main()`: Mendefinisikan fungsi `main`.
+20. `int lengthOfText, selectOption;` Mendeklarasikan dua variabel integer, `lengthOfText` dan `selectOption`
+21. `FILE *fptr = NULL;` Mendeklarasikan pointer ke `FILE` dan menginisialisasinya dengan `NULL`.
+22. `char text[MAX_LENGTH];`: Mendeklarasikan array karakter text dengan ukuran `MAX_LENGTH`.
+23. `fptr = fopen("file.txt", "r");`: Membuka file bernama “file.txt” untuk dibaca dan menyimpan pointer ke file tersebut dalam `fptr`.
+24. `if(fptr == NULL){ printf("Error"); exit(1); }`: Jika file tidak dapat dibuka (misalnya, file tidak ada), program mencetak “Error” dan keluar dengan status 1.
+25. `fgets(text, MAX_LENGTH, fptr);` Membaca teks dari file dan menyimpannya dalam array `text`.
+26. `fclose(fptr);`: Menutup file.
+27. `selectOption = checkLenghtRequirement(text);`: Memeriksa panjang teks dan menyimpan hasilnya dalam `selectOption`.
+28. `void (*functions[3])(int*) = {lessThanRequired, equalThanRequired, moreThanRequired};`: Mendeklarasikan array dari pointer ke fungsi dan menginisialisasikannya dengan tiga fungsi yang telah didefinisikan sebelumnya.
+29. `lengthOfText = strlen(text);`: Menghitung panjang teks dan menyimpannya dalam `lengthOfText`
+30. `functionsselectOption;` Memanggil fungsi yang sesuai berdasarkan selectOption dan memberikan alamat dari `lengthOfText` sebagai argumen.
+31. `printf("\nThe Length is updated to %d", lengthOfText);`: Mencetak panjang teks yang telah diperbarui.
+32. `return 0;`: Mengakhiri fungsi main dan mengembalikan 0, menandakan bahwa program telah berjalan dengan sukses.
 
 ### Fungsi
 - **int main():** Fungsi utama program yang mengandung logika menu, pengolahan data, dan interaksi dengan pengguna.
@@ -52,282 +148,4 @@ Program memiliki enam menu utama:
 - Jika data ditemukan, pengguna memilih status baru (Ongoing atau Delivered). Jika tidak, pesan bahwa data tidak ditemukan ditampilkan.
 #### 6. Keluar
 - Keluar dari program.
-## 3. Code.c
-```sh
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
 
-struct Pengiriman {
-    char nama_pengirim[50];
-    char tujuan_pengiriman[50];
-    float berat_barang;
-    char nama_penerima[50];
-    char kode_resi[10];
-    float harga;
-    time_t timestamp;
-    char status[20];
-};
-
-float hitungHarga(float berat) {
-    const float harga_per_kg = 10.0;
-    return berat * harga_per_kg;
-}
-
-void newLine() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
-
-void tampilkanKodeResi(struct Pengiriman data) {
-    printf("Kode Resi        : %s\n", data.kode_resi);
-}
-
-void tampilkanData(struct Pengiriman data) {
-    printf("Nama Pengirim   : %s\n", data.nama_pengirim);
-    printf("Tujuan Pengiriman: %s\n", data.tujuan_pengiriman);
-    printf("Berat Barang     : %.2f kg\n", data.berat_barang);
-    printf("Nama Penerima    : %s\n", data.nama_penerima);
-    printf("Kode Resi        : %s\n", data.kode_resi);
-    printf("Harga            : Rp.%.2f\n", data.harga);
-
-    char timestamp_str[20];
-    strftime(timestamp_str, sizeof(timestamp_str), "%Y-%m-%d %H:%M:%S", localtime(&data.timestamp));
-    printf("Timestamp        : %s\n", timestamp_str);
-
-    printf("Status           : %s\n", data.status);
-
-    printf("-----------------------------\n");
-}
-
-void cariData(struct Pengiriman data[], int jumlah_data, char kode_resi_cari[10]) {
-    int ditemukan = 0;
-    for (int i = 0; i < jumlah_data; i++) {
-        if (strcmp(data[i].kode_resi, kode_resi_cari) == 0) {
-            tampilkanData(data[i]);
-            ditemukan = 1;
-            break;
-        }
-    }
-
-    if (!ditemukan) {
-        printf("Data tidak ditemukan.\n");
-    }
-}
-
-void tampilkanSemuaData(struct Pengiriman data[], int jumlah_data) {
-    if (jumlah_data > 0) {
-        printf("\nSemua Data Pengiriman:\n");
-        for (int i = 0; i < jumlah_data; i++) {
-            printf("Data ke-%d:\n", i + 1);
-            tampilkanData(data[i]);
-        }
-    } else {
-        printf("Tidak ada data yang diinput.\n");
-    }
-}
-
-int compareTimestampAsc(const void *a, const void *b) {
-    return ((struct Pengiriman *)a)->timestamp - ((struct Pengiriman *)b)->timestamp;
-}
-
-int compareTimestampDesc(const void *a, const void *b) {
-    return ((struct Pengiriman *)b)->timestamp - ((struct Pengiriman *)a)->timestamp;
-}
-
-void urutkanData(struct Pengiriman data[], int jumlah_data, int urutan) {
-    if (urutan == 1) {
-        qsort(data, jumlah_data, sizeof(struct Pengiriman), compareTimestampAsc);
-        printf("\nData Pengiriman diurutkan berdasarkan tanggal secara ascending:\n");
-    } else if (urutan == 2) {
-        qsort(data, jumlah_data, sizeof(struct Pengiriman), compareTimestampDesc);
-        printf("\nData Pengiriman diurutkan berdasarkan tanggal secara descending:\n");
-    } else {
-        printf("Pilihan tidak valid.\n");
-        return;
-    }
-
-    tampilkanSemuaData(data, jumlah_data);
-}
-
-void simpanDataKeFileText(struct Pengiriman data[], int jumlah_data) {
-    FILE *file = fopen("data_pengiriman.txt", "w");
-    if (file != NULL) {
-        // Print header
-        fprintf(file, "Nama Pengirim;Tujuan Pengiriman;Berat Barang;Nama Penerima;Kode Resi;Harga;Timestamp;Status\n");
-
-        for (int i = 0; i < jumlah_data; i++) {
-            // Use fprintf to write data to file
-            fprintf(file, "%s;%s;%.2f;%s;%s;%.2f;%ld;%s\n", data[i].nama_pengirim, data[i].tujuan_pengiriman,
-                    data[i].berat_barang, data[i].nama_penerima, data[i].kode_resi, data[i].harga,
-                    data[i].timestamp, data[i].status);
-        }
-
-        fclose(file);
-        printf("Data berhasil disimpan ke data_pengiriman.txt.\n");
-    } else {
-        printf("Gagal membuka file untuk penulisan data.\n");
-    }
-}
-
-void bacaDataDariFileText(struct Pengiriman data[], int *jumlah_data) {
-    FILE *file = fopen("data_pengiriman.txt", "r");
-    if (file != NULL) {
-        // Read the header and discard it
-        fscanf(file, "Nama Pengirim;Tujuan Pengiriman;Berat Barang;Nama Penerima;Kode Resi;Harga;Timestamp;Status\n");
-
-        while (fscanf(file, "%49[^;];%[^;];%f;%[^;];%[^;];%f;%ld;%[^\n]\n",
-                      data[*jumlah_data].nama_pengirim, data[*jumlah_data].tujuan_pengiriman,
-                      &data[*jumlah_data].berat_barang, data[*jumlah_data].nama_penerima,
-                      data[*jumlah_data].kode_resi, &data[*jumlah_data].harga,
-                      &data[*jumlah_data].timestamp, data[*jumlah_data].status) == 8) {
-            (*jumlah_data)++;
-        }
-
-        fclose(file);
-    } else {
-        printf("File tidak ditemukan atau gagal membuka file untuk membaca data.\n");
-    }
-}
-
-int main() {
-    const int maks_data = 100;
-    struct Pengiriman data[maks_data];
-    int jumlah_data = 0;
-
-    bacaDataDariFileText(data, &jumlah_data);
-
-    int pilihan, urutan;
-    char kode_resi_cari[10];
-
-    do {
-        printf("\nMenu:\n");
-        printf("1. Tambah Data Pengiriman\n");
-        printf("2. Cari Data Pengiriman\n");
-        printf("3. Tampilkan Semua Data Pengiriman\n");
-        printf("4. Urutkan Data Berdasarkan Tanggal\n");
-        printf("5. Edit Status Pengiriman\n");
-        printf("6. Keluar\n");
-        printf("Pilih menu (1-6): ");
-        scanf("%d", &pilihan);
-        newLine();
-
-        switch (pilihan) {
-            case 1:
-                printf("\nMasukkan data pengiriman\n");
-                printf("Nama Pengirim   : ");
-                fgets(data[jumlah_data].nama_pengirim, sizeof(data[jumlah_data].nama_pengirim), stdin);
-                strtok(data[jumlah_data].nama_pengirim, "\n");
-
-                printf("Tujuan Pengiriman: ");
-                fgets(data[jumlah_data].tujuan_pengiriman, sizeof(data[jumlah_data].tujuan_pengiriman), stdin);
-                strtok(data[jumlah_data].tujuan_pengiriman, "\n");
-
-                printf("Berat Barang (kg): ");
-                scanf("%f", &data[jumlah_data].berat_barang);
-                newLine();
-
-                printf("Nama Penerima    : ");
-                fgets(data[jumlah_data].nama_penerima, sizeof(data[jumlah_data].nama_penerima), stdin);
-                strtok(data[jumlah_data].nama_penerima, "\n");
-
-                sprintf(data[jumlah_data].kode_resi, "R%03d", jumlah_data + 1);
-
-                data[jumlah_data].harga = hitungHarga(data[jumlah_data].berat_barang);
-
-                data[jumlah_data].timestamp = time(NULL);
-
-                printf("\nKode Resi yang telah diinput:\n");
-                tampilkanKodeResi(data[jumlah_data]);
-
-                printf("\nPilih status pengiriman (1. Ongoing, 2. Delivered): ");
-                int status_choice;
-                scanf("%d", &status_choice);
-                newLine();
-
-                switch (status_choice) {
-                    case 1:
-                        strcpy(data[jumlah_data].status, "Ongoing");
-                        break;
-                    case 2:
-                        strcpy(data[jumlah_data].status, "Delivered");
-                        break;
-                    default:
-                        printf("Pilihan status tidak valid. Status di set default sebagai Ongoing.\n");
-                        strcpy(data[jumlah_data].status, "Ongoing");
-                }
-
-                jumlah_data++;
-                simpanDataKeFileText(data, jumlah_data);
-                break;
-
-            case 2:
-                printf("\nMasukkan kode resi untuk mencari data: ");
-                fgets(kode_resi_cari, sizeof(kode_resi_cari), stdin);
-                strtok(kode_resi_cari, "\n");
-                cariData(data, jumlah_data, kode_resi_cari);
-                break;
-
-            case 3:
-                tampilkanSemuaData(data, jumlah_data);
-                break;
-
-            case 4:
-                printf("\nPilih urutan pengurutan:\n");
-                printf("1. Ascending\n");
-                printf("2. Descending\n");
-                printf("Pilih urutan (1-2): ");
-                scanf("%d", &urutan);
-                newLine();
-
-                urutkanData(data, jumlah_data, urutan);
-                break;
-
-            case 5:
-                printf("\nMasukkan kode resi untuk mengedit status: ");
-                fgets(kode_resi_cari, sizeof(kode_resi_cari), stdin);
-                strtok(kode_resi_cari, "\n");
-                cariData(data, jumlah_data, kode_resi_cari);
-
-                int index;
-                for (index = 0; index < jumlah_data; index++) {
-                    if (strcmp(data[index].kode_resi, kode_resi_cari) == 0) {
-                        break;
-                    }
-                }
-
-                if (index < jumlah_data) {
-                    printf("Pilih status baru (1. Ongoing, 2. Delivered): ");
-                    int status_choice;
-                    scanf("%d", &status_choice);
-                    newLine();
-
-                    switch (status_choice) {
-                        case 1:
-                            strcpy(data[index].status, "Ongoing");
-                            break;
-                        case 2:
-                            strcpy(data[index].status, "Delivered");
-                            break;
-                        default:
-                            printf("Pilihan status tidak valid. Status tidak diubah.\n");
-                    }
-                } else {
-                    printf("Data tidak ditemukan.\n");
-                }
-                break;
-
-            case 6:
-                simpanDataKeFileText(data, jumlah_data);
-                printf("Program selesai.\n");
-                break;
-
-            default:
-                printf("Pilihan tidak valid. Silakan pilih lagi.\n");
-        }
-    } while (pilihan != 6);
-
-    return 0;
-}
-```
