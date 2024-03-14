@@ -154,3 +154,12 @@ Perintah ini akan mengkompilasi kode  dan menghasilkan file eksekusi bernama `te
 
 Program akan membaca teks dari file.txt, memeriksa panjang teks, dan memanggil fungsi yang sesuai berdasarkan panjang teks tersebut.
 
+## Cara Kerja Program
+
+1. Membaca File: Program ini membuka dan membaca file teks dengan nama “file.txt”. Teks dari file tersebut disimpan dalam array karakter `text`.
+2. Memeriksa Panjang Teks: Panjang teks yang dibaca dari file diperiksa menggunakan fungsi `checkLenghtRequirement`. Fungsi ini membandingkan panjang teks dengan `MIN_LENGTH` dan mengembalikan 0, 1, atau 2 tergantung pada hasil perbandingan tersebut.
+3. Memilih Fungsi yang Sesuai: Program ini memiliki array functions yang berisi pointer ke tiga fungsi: `lessThanRequired`, `equalThanRequired`, dan `moreThanRequired`. Berdasarkan nilai yang dikembalikan oleh checkLenghtRequirement, salah satu dari tiga fungsi ini dipanggil.
+- Jika `checkLenghtRequirement `mengembalikan 0 (panjang teks kurang dari `MIN_LENGTH`), fungsi `lessThanRequired `dipanggil. Fungsi ini mencetak pesan bahwa teks terlalu pendek dan mengubah `lengthOfText` menjadi `MIN_LENGTH`
+- Jika `heckLenghtRequirement `mengembalikan 1 (panjang teks sama dengan `MIN_LENGTH`), fungsi `equalThanRequired `dipanggil. Fungsi ini mencetak pesan bahwa panjang teks sudah benar.
+- Jika `checkLenghtRequirement` mengembalikan 2 (panjang teks lebih dari `MIN_LENGTH`), fungsi `moreThanRequired` dipanggil. Fungsi ini mencetak pesan bahwa teks terlalu panjang dan mengubah `lengthOfText` menjadi `MIN_LENGTH`
+4. Menampilkan Panjang Teks yang Diperbarui: Setelah fungsi yang sesuai dipanggil, program mencetak “The Length is updated to” diikuti dengan nilai `lengthOfText` yang telah diperbarui.
