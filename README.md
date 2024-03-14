@@ -185,7 +185,7 @@ Program ini bekerja dengan cara membaca teks dari file, memeriksa panjang teks, 
 > **program ini memerlukan file teks bernama “file.txt” di direktori yang sama untuk berfungsi dengan benar.**
 
 ## Penjelasan Kode Perbagian 
-1. Pendefinisian Konstanta dan Fungsi: Bagian awal kode mendefinisikan dua konstanta MAX_LENGTH dan `MIN_LENGTH`, serta tiga fungsi `lessThanRequired`, `equalThanRequired`, dan `moreThanRequired`. Ketiga fungsi ini menerima pointer ke integer dan memodifikasi nilai yang ditunjuk oleh pointer tersebut jika perlu.
+1. Pendefinisian Konstanta dan Fungsi: Bagian awal kode mendefinisikan dua konstanta `MAX_LENGTH` dan `MIN_LENGTH`, serta tiga fungsi `lessThanRequired`, `equalThanRequired`, dan `moreThanRequired`. Ketiga fungsi ini menerima pointer ke integer dan memodifikasi nilai yang ditunjuk oleh pointer tersebut jika perlu.
 2. Fungsi `checkLenghtRequirement`: Fungsi ini menerima string sebagai argumen dan memeriksa panjang string tersebut. Jika panjang string kurang dari `MIN_LENGTH`, fungsi mengembalikan 0. Jika panjang string sama dengan `MIN_LENGTH`, fungsi mengembalikan 1. Jika panjang string lebih dari `MIN_LENGTH`, fungsi mengembalikan 2.
 3. Fungsi `main`: Fungsi `main` adalah titik masuk program. Di dalamnya, program membuka file teks, membaca teksnya, memeriksa panjang teks, dan memanggil fungsi yang sesuai.
 - Membuka File: Program membuka file bernama “file.txt” untuk dibaca. Jika file tidak dapat dibuka (misalnya, file tidak ada), program mencetak “Error” dan keluar dengan status 1.
